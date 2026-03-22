@@ -1,5 +1,5 @@
 # Daily_message_in_chat
-```markdown
+
 <p align="center">
   <h1 align="center">Telegram Auto Sender 📬</h1>
   <p align="center">
