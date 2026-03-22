@@ -8,7 +8,7 @@
   </p>
 </p>
 
-## ✨ Features
+## Features
 
 - Sends messages to private chats, groups or channels  
 - Works using a regular user account (not a bot)  
@@ -46,7 +46,7 @@ API_ID    = 1234567
 API_HASH  = "your_api_hash_here"
 PHONE     = "+79123456789"        # your phone number
 CHAT_ID   = -1001234567890        # the one you just got
-MESSAGE   = "Your message goes here ✈️"
+MESSAGE   = "Your message goes here"
 ```
 ### Running automatically on Windows
 
@@ -65,3 +65,27 @@ Recommended way — Windows Task Scheduler:
 
 **Important:**  
 Stable internet + working VPN (if Telegram requires VPN in your region) must be active. Otherwise authorization will fail and the script won’t run.
+
+### Additional Files in the Project
+
+- `day_counter.txt`  
+  Day / send counter file (used to track the number of days or messages sent).
+
+- `my_account_session.session`  
+  This is the session file that is created on the first run of the script.  
+  On first launch, you will need to enter the authorization code that arrives in Telegram.  
+  After successful authorization, the script will run automatically without needing the code again.  
+  **This is important!** The script will not work until you complete the initial authorization once.
+
+- `start.bat`  
+  Simple batch file for launching the script.  
+  It can be skipped — just specify the correct paths in Task Scheduler.
+
+- `run-hidden.vbs`  
+  VBS script that launches the Python script hidden (without showing any console window).  
+  It is optional, but using it ensures no console window appears at all.
+
+- `run-once-today.ps1`  
+  Main PowerShell control script with launch conditions.  
+  It creates a flag file to prevent sending the same message multiple times in one day.  
+  It also prevents the main script from running if the current time on your PC is between 00:00 and 06:59 (night hours).
